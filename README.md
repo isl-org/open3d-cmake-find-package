@@ -57,7 +57,7 @@ On Windows:
 git clone https://github.com/intel-isl/open3d-cmake-find-package.git
 cd open3d-cmake-find-package
 mkdir build
-cmake -G "Visual Studio 16 2019 Win64" -A x64 -DCMAKE_PREFIX_PATH=C:\open3d_install  ..
+cmake -G "Visual Studio 16 2019 Win64" -A x64 -DCMAKE_PREFIX_PATH=C:\open3d_install ..
 cmake --build . --config Release
 Release\Draw
 ```
