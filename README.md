@@ -22,7 +22,7 @@ git clone --recursive https://github.com/intel-isl/Open3D.git
 cd Open3D
 mkdir build
 cd build
-cmake -DCMAKE_INSTALL_PREFIX=${HOME}/open3d_install ..
+cmake -DBUILD_SHARED_LIBS=ON -DCMAKE_INSTALL_PREFIX=${HOME}/open3d_install ..
 cd ../..
 ```
 
@@ -33,10 +33,12 @@ git clone --recursive https://github.com/intel-isl/Open3D.git
 cd Open3D
 mkdir build
 cd build
-cmake -G "Visual Studio 16 2019 Win64" -A x64 -DCMAKE_INSTALL_PREFIX=C:\open3d_install ..
+cmake -G "Visual Studio 16 2019 Win64" -A x64 -DBUILD_SHARED_LIBS=ON -DCMAKE_INSTALL_PREFIX=C:\open3d_install ..
 cmake --build . --config Release --target install
 cd ..\..
 ```
+
+Note: `-DBUILD_SHARED_LIBS=ON` is recommended if `-DBUILD_CUDA_MODULE=ON`.
 
 ## Step 2: Use Open3D in this example project
 
