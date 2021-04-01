@@ -29,15 +29,15 @@ if(NOT Open3D_FOUND)
     message(FATAL_ERROR "Open3D not found, please use -DCMAKE_INSTALL_PREFIX=open3d_install_dir")
 endif()
 
-add_executable(Draw Draw.cpp)
-target_link_libraries(Draw Open3D::Open3D)
+add_executable(TIntegrateRGBD TIntegrateRGBD.cpp)
+target_link_libraries(TIntegrateRGBD Open3D::Open3D)
 
 # On Windows, when BUILD_SHARED_LIBS, copy .dll to the executable directory
 if(WIN32)
     get_target_property(open3d_type Open3D::Open3D TYPE)
     if(open3d_type STREQUAL "SHARED_LIBRARY")
         message(STATUS "Will copy Open3D.dll to ${CMAKE_CURRENT_BINARY_DIR}/$<CONFIG>")
-        add_custom_command(TARGET Draw POST_BUILD
+        add_custom_command(TARGET TIntegrateRGBD POST_BUILD
                         COMMAND ${CMAKE_COMMAND} -E copy
                                 ${CMAKE_INSTALL_PREFIX}/bin/Open3D.dll
                                 ${CMAKE_CURRENT_BINARY_DIR}/$<CONFIG>)
