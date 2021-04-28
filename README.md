@@ -13,9 +13,10 @@ For more details, check out the [Open3D repo](https://github.com/intel-isl/Open3
 
 Follow the [Open3D compilation guide](http://www.open3d.org/docs/release/compilation.html),
 compile and install Open3D in your preferred location. You can specify the
-installation path with `CMAKE_INSTALL_PREFIX`. E.g.
+installation path with `CMAKE_INSTALL_PREFIX` and the number of parallel jobs
+to speed up compilation.
 
-On Ubuntu/MacOS:
+On Ubuntu/macOS:
 
 ```bash
 git clone --recursive https://github.com/intel-isl/Open3D.git
@@ -23,6 +24,7 @@ cd Open3D
 mkdir build
 cd build
 cmake -DBUILD_SHARED_LIBS=ON -DCMAKE_INSTALL_PREFIX=${HOME}/open3d_install ..
+cmake --build . --config Release --parallel 12 --target install
 cd ../..
 ```
 
@@ -33,8 +35,8 @@ git clone --recursive https://github.com/intel-isl/Open3D.git
 cd Open3D
 mkdir build
 cd build
-cmake -G "Visual Studio 16 2019 Win64" -A x64 -DBUILD_SHARED_LIBS=ON -DCMAKE_INSTALL_PREFIX=C:\open3d_install ..
-cmake --build . --config Release --target install
+cmake -DBUILD_SHARED_LIBS=ON -DCMAKE_INSTALL_PREFIX=C:\open3d_install ..
+cmake --build . --config Release --parallel 12 --target install
 cd ..\..
 ```
 
@@ -42,14 +44,15 @@ Note: `-DBUILD_SHARED_LIBS=ON` is recommended if `-DBUILD_CUDA_MODULE=ON`.
 
 ## Step 2: Use Open3D in this example project
 
-On Ubuntu/MacOS:
+On Ubuntu/macOS:
 
 ```bash
 git clone https://github.com/intel-isl/open3d-cmake-find-package.git
 cd open3d-cmake-find-package
 mkdir build
 cd build
-cmake -DCMAKE_INSTALL_PREFIX=${HOME}/open3d_install ..
+cmake -DOpen3D_ROOT=${HOME}/open3d_install ..
+cmake --build . --config Release
 ./Draw
 ```
 
@@ -59,7 +62,7 @@ On Windows:
 git clone https://github.com/intel-isl/open3d-cmake-find-package.git
 cd open3d-cmake-find-package
 mkdir build
-cmake -G "Visual Studio 16 2019 Win64" -A x64 -DCMAKE_PREFIX_PATH=C:\open3d_install ..
+cmake -DOpen3D_ROOT=C:\open3d_install ..
 cmake --build . --config Release
 Release\Draw
 ```
