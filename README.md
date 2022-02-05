@@ -24,7 +24,7 @@ cd Open3D
 mkdir build
 cd build
 cmake -DBUILD_SHARED_LIBS=ON -DCMAKE_INSTALL_PREFIX=${HOME}/open3d_install ..
-cmake --build . --config Release --parallel 12 --target install
+make install -j 12
 cd ../..
 ```
 
@@ -52,7 +52,7 @@ cd open3d-cmake-find-package
 mkdir build
 cd build
 cmake -DOpen3D_ROOT=${HOME}/open3d_install ..
-cmake --build . --config Release
+make -j 12
 ./Draw
 ```
 
@@ -63,6 +63,6 @@ git clone https://github.com/intel-isl/open3d-cmake-find-package.git
 cd open3d-cmake-find-package
 mkdir build
 cmake -DOpen3D_ROOT=C:\open3d_install ..
-cmake --build . --config Release
+cmake --build . --config Release --parallel 12
 Release\Draw
 ```
