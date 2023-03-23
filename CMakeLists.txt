@@ -27,7 +27,7 @@ if(WIN32)
         message(STATUS "Copying Open3D.dll to ${CMAKE_CURRENT_BINARY_DIR}/$<CONFIG>")
         add_custom_command(TARGET Draw POST_BUILD
                            COMMAND ${CMAKE_COMMAND} -E copy
-                                   ${CMAKE_INSTALL_PREFIX}/bin/Open3D.dll
+                                   ${Open3D_ROOT}/bin/Open3D.dll
                                    ${CMAKE_CURRENT_BINARY_DIR}/$<CONFIG>)
     endif()
 endif()
