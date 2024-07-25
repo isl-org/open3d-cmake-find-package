@@ -1,3 +1,7 @@
+# Moved to the Open3D repo
+
+Please see [the main Open3D repo](https://github.com/isl-org/Open3D/tree/main/examples/cmake/open3d-cmake-find-package) for an updated example.
+
 # Find Pre-Installed Open3D Package in CMake
 
 This is one of the two CMake examples showing how to use Open3D in your CMake
